@@ -2,12 +2,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import ThemeToggle from '../../components/ThemeToggle';
 import { useTheme } from '../../context/ThemeContext';
 
-export default function HomeScreen() {
+export default function MoreScreen() {
     const { colors } = useTheme();
 
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
-            <Text style={[styles.text, { color: colors.text }]}>Home Screen</Text>
+            <Text style={[styles.text, { color: colors.text }]}>More Screen</Text>
             <View style={styles.toggleContainer}>
                 <ThemeToggle />
             </View>
