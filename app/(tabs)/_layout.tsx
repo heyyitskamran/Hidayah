@@ -1,6 +1,8 @@
 import { Tabs } from 'expo-router';
 import { FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
+import NamazHero from '../../components/NamazHero';
 
 export default function TabLayout() {
     const { colors } = useTheme();
@@ -14,13 +16,11 @@ export default function TabLayout() {
                     backgroundColor: colors.card,
                     borderTopColor: colors.border,
                 },
+                header: () => <NamazHero />,
                 headerStyle: {
+                    height: 'auto', // Allow header to determine its own height
                     backgroundColor: colors.card,
                 },
-                headerTitleStyle: {
-                    color: colors.text,
-                },
-                headerTintColor: colors.text,
             }}
         >
             <Tabs.Screen

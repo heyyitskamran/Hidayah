@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet } from 'react-native';
-import ThemeToggle from '../../components/ThemeToggle';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function HomeScreen() {
@@ -8,9 +7,6 @@ export default function HomeScreen() {
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
             <Text style={[styles.text, { color: colors.text }]}>Home Screen</Text>
-            <View style={styles.toggleContainer}>
-                <ThemeToggle />
-            </View>
         </View>
     );
 }
@@ -24,9 +20,5 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 20,
-    },
-    toggleContainer: {
-        marginTop: 20,
     },
 });
