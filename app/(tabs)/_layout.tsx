@@ -5,29 +5,40 @@ import { useTheme } from '../../context/ThemeContext';
 import NamazHero from '../../components/NamazHero';
 
 export default function TabLayout() {
-    const { colors } = useTheme();
+    // using direct colors as per design since ThemeContext might not have exact matches or we want to override for this specific look
+    const activeColor = '#A858DA';
+    const inactiveColor = '#9CA3AF';
 
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: colors.primary,
-                tabBarInactiveTintColor: 'gray',
+                tabBarActiveTintColor: activeColor,
+                tabBarInactiveTintColor: inactiveColor,
                 tabBarStyle: {
-                    backgroundColor: colors.card,
-                    borderTopColor: colors.border,
+                    backgroundColor: 'white',
+                    borderTopWidth: 0, // Clean look as per image
+                    height: 60, // Sligthly taller for comfort
+                    paddingBottom: 8,
+                    paddingTop: 8,
+                    elevation: 5,
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: -2 },
+                    shadowOpacity: 0.05,
+                    shadowRadius: 4,
                 },
-                header: () => <NamazHero />,
-                headerStyle: {
-                    height: 'auto', // Allow header to determine its own height
-                    backgroundColor: colors.card,
+                tabBarLabelStyle: {
+                    fontSize: 12,
+                    fontWeight: '500',
                 },
+                headerShown: false, // We handle headers individually or not at all (Index/Hadith have custom)
             }}
         >
             <Tabs.Screen
                 name="quran"
                 options={{
                     title: 'Quran',
-                    tabBarIcon: ({ color }) => <FontAwesome5 name="book-open" size={24} color={color} />,
+                    headerShown: false,
+                    tabBarIcon: ({ color }) => <Ionicons name="book" size={24} color={color} />,
                 }}
             />
             <Tabs.Screen
@@ -48,14 +59,14 @@ export default function TabLayout() {
                 name="ibadaat"
                 options={{
                     title: 'Ibadaat',
-                    tabBarIcon: ({ color }) => <FontAwesome5 name="praying-hands" size={24} color={color} />,
+                    tabBarIcon: ({ color }) => <FontAwesome5 name="mosque" size={20} color={color} />,
                 }}
             />
             <Tabs.Screen
                 name="more"
                 options={{
                     title: 'More',
-                    tabBarIcon: ({ color }) => <Ionicons name="menu" size={24} color={color} />,
+                    tabBarIcon: ({ color }) => <Ionicons name="ellipsis-horizontal" size={24} color={color} />,
                 }}
             />
         </Tabs>

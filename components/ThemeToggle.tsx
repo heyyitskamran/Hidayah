@@ -13,7 +13,7 @@ export default function ThemeToggle() {
         >
             <Ionicons
                 name={theme === 'light' ? 'moon' : 'sunny'}
-                size={24}
+                size={15}
                 color={colors.text}
             />
         </TouchableOpacity>
