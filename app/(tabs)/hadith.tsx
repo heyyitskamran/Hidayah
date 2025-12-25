@@ -77,12 +77,14 @@ const styles = StyleSheet.create({
     },
     searchContainer: {
         paddingHorizontal: 0,
+        zIndex: 20, // Ensure search bar sits on top of hero
     },
     listContent: {
-        paddingHorizontal: 20,
+        paddingHorizontal: 0, // Removed to allow full-width Hero
         paddingBottom: 100, // Increased padding to clear bottom tab bar
     },
     columnWrapper: {
         justifyContent: 'space-between',
+        paddingHorizontal: 12, // Added to align cards with header (12 + 8 margin = 20)
     },
 });
